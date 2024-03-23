@@ -1,0 +1,19 @@
+.NavBar{
+    margin: auto;
+    width: 80%;
+    margin-top: 5vh;
+    /* height: 5%; */
+    background-color: black;
+    display: flex;
+    /* justify-content: center; */
+    justify-content: space-between;
+    padding: 2px;
+    background-color: rgb(88, 83, 83);
+
+}
+.btn{
+    font-size: 20px;
+}
+.drop{
+    width: 15%;
+}
