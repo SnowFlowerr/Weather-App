@@ -9,7 +9,7 @@
 .descri{
     text-align: center;
     /* margin-top: 3vh; */
-    font-size: 30px;
+    font-size: 2.5vw;
 }
 .location{
     margin-top: 5vh;
@@ -30,17 +30,18 @@
 } */
 .datebox div {
     text-align: center;
-    width: 13vw;
+    width: 12.72vw;
 }
 .table{
     /* border: 2px solid black; */
 }
 .box{
-    font-size: 25px;
+    font-size: 1.8vw;
 }
 .tempe{
-    font-size: 25px;
+    font-size: 1.8vw;
     word-wrap: initial;
+    /* border: 2px solid black; */
 }
 .live{
     width: 52%;
@@ -50,29 +51,35 @@
     /* border: 2px solid black; */
 }
 .icon{
-    font-size: 150px;
-    width: 10vw;
+    font-size: 10vw;
+    width: 13vw;
+    /* border: 2px solid black; */
+    text-align: center;
 }
 .liveTemp{
-    font-size: 100px;
+    font-size: 7.5vw;
 }
 .liveMinMax{
+    /* border: 2px solid black; */
     text-align: center;
-    margin-left: 100px;
-    margin-right: 100px;
+    width: 20vw;
+    /* margin-left: 100px; */
+    /* margin-right: 100px; */
 }
 .smallIcon{
-    font-size: 15px;
-    margin-top: 22px;
+    font-size: 1vw;
+    margin-top: 2.6vh;
+    /* border: 2px solid black; */
 }
 .smallIcon i{
-    width: 25px;
+    width: 1.8vw;
 }
 .threeicon{
-    width: 19%;
+    /* border: 2px solid black; */
+    width: 8vw;
 }
 .Numbers{
-    font-size: 25px;
+    font-size: 1.9vw;
 }
 .letters{
     font-size: 12px;

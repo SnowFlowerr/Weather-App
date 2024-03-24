@@ -31,7 +31,7 @@ export default function Weatherui() {
                 setData(response.data.days);
                 setLive(response.data.days[0])
                 allwhite()
-                setLoc(response.data.resolvedAddress)
+                setLoc(response.data)
                 document.getElementById('0').style.color = "black"
             } catch (error) {
                 console.error(error.message);
@@ -135,7 +135,7 @@ export default function Weatherui() {
             <NavBar setState={setState} ></NavBar>
             <div className={styles.Bigbox}>
                 <div className={styles.descri}>
-                    <div className={styles.location}>{loc}</div>
+                    <div className={styles.location}>{loc.resolvedAddress}</div>
                     
                     {live.description}
                 </div>
