@@ -1,14 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from "./NavBar.module.css"
 
-export default function NavBar({setState, setCity}) {
+export default function NavBar({setState}) {
+    const [loc,setLoc]=useState("");
     function handleChange(e){
         e.preventDefault();
-        setState(e.target.value)
+        setLoc(e.target.value);
+        // setState(e.target.value)
+
+    }
+    function handleSubmit(e){
+        e.preventDefault();
+        let arr=loc.split();
+        let location="";
+        for(let i=0;i<arr.length-1;i++){
+            location+=arr[i];
+        }
+        location+=arr[arr.length-1];
+        setState(location)
+        setLoc("")
     }
     return (
         <div className={styles.NavBar}>
-            <select id="state" className={styles.drop} onChange={handleChange}>
+            {/* <select id="state" className={styles.drop} onChange={handleChange}>
                 <option value="Andhra Pradesh">Andhra Pradesh</option>
                 <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                 <option value="Assam">Assam</option>
@@ -44,8 +58,13 @@ export default function NavBar({setState, setCity}) {
                 <option value="Delhi">Delhi</option>
                 <option value="Lakshadweep">Lakshadweep</option>
                 <option value="Puducherry">Puducherry</option>
-            </select>
-            <button className={styles.btn}><i className="fa-solid fa-circle-half-stroke"></i></button>
+            </select> */}
+            <form onSubmit={handleSubmit}>
+            <input type="text" value={loc} placeholder='Enter the location with space between' onChange={handleChange}/>
+            <button onClick={handleSubmit}>Search</button>
+            </form>
+            <button className={styles.btn}><i className="fa-solid
+            fa-circle-half-stroke"></i></button>
         </div>
     )
 }

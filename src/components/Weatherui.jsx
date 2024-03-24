@@ -5,10 +5,12 @@ import axios from 'axios';
 
 export default function Weatherui() {
     const [data, setData] = useState([1, 2, 3, 4])
-    const [state, setState] = useState("Andhra Pradesh")
+    const [state, setState] = useState("")
     const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
     const [cel, setCel] = useState(true)
     const [feh, setFeh] = useState(false)
+    const [loc, setLoc] = useState("Enter Location")
+
     const [live, setLive] = useState({
         "datetime": null,
         "tempmax": null,
@@ -25,10 +27,12 @@ export default function Weatherui() {
     useEffect(() => {
         async function fetchData() {
             try {
-                let response = await axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${state}%20india?unitGroup=metric&elements=datetime%2CdatetimeEpoch%2Ctempmax%2Ctempmin%2Ctemp%2Chumidity%2Cprecip%2Cpreciptype%2Cwindspeedmean%2Csolarradiation%2Cdescription&include=fcst%2Cevents%2Ccurrent&key=UHFY2CQ8X3RMXJMJ488U877Z8&contentType=json`)
+                let response = await axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${state}?unitGroup=metric&elements=datetime%2CdatetimeEpoch%2Ctempmax%2Ctempmin%2Ctemp%2Chumidity%2Cprecip%2Cpreciptype%2Cwindspeedmean%2Csolarradiation%2Cdescription&include=fcst%2Cevents%2Ccurrent&key=UHFY2CQ8X3RMXJMJ488U877Z8&contentType=json`)
                 setData(response.data.days);
                 setLive(response.data.days[0])
                 allwhite()
+                setLoc(response.data.resolvedAddress)
+                document.getElementById('0').style.color = "black"
             } catch (error) {
                 console.error(error.message);
                 setLive({
@@ -126,12 +130,13 @@ export default function Weatherui() {
         }
     }
 
-
     return (
         <>
             <NavBar setState={setState} ></NavBar>
             <div className={styles.Bigbox}>
                 <div className={styles.descri}>
+                    <div className={styles.location}>{loc}</div>
+                    
                     {live.description}
                 </div>
                 <div className={styles.live}>
@@ -140,10 +145,10 @@ export default function Weatherui() {
                     <div className={styles.threeicon}><div className={styles.smallIcon}><i class="fa-solid fa-wind"></i><span className={styles.Numbers}>{cel === true ? Math.floor(live.windspeedmean) : Math.round(live.windspeedmean / 1.6)}</span><span className={styles.letters}>{cel === true ? " km/h" : " mph"} </span></div><div className={styles.smallIcon}><i class="fa-solid fa-umbrella"></i><span className={styles.Numbers}>{Math.floor(live.precip)}</span><span className={styles.letters}> %</span></div><div className={styles.smallIcon}> <i class="fa-solid fa-droplet"></i><span className={styles.Numbers}>{Math.floor(live.humidity)}</span><span className={styles.letters}> %</span></div></div>
                 </div>
                 <div className={styles.datebox}>
-                    {data.map((element, Index) => <div onClick={() => handleLive(Index)} id={`${Index}`}>
+                    {data.map((element, Index) => <div onClick={() => handleLive(Index)} id={`${Index}`} className={styles.table}>
                         <div className={styles.box}>{getImage(element.description)}</div>
                         <div className={styles.tempe}>{cel === true ? Math.floor(element.tempmin) : Math.floor(element.tempmin * 9 / 5) + 32}<sup>o</sup> / {cel === true ? Math.floor(element.tempmax) : Math.floor(element.tempmax * 9 / 5) + 32}<sup>o</sup></div>
-                        <div className={styles.date}>{days[new Date(element.datetime).getDay()]}</div>
+                        <div className={styles.date}>{new Date().getDate()===new Date(element.datetime).getDate()?"TOD":days[new Date(element.datetime).getDay()]}</div>
                     </div>)}
                 </div>
                 <div className={styles.celFar}>

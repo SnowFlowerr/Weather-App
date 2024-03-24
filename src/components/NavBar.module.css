@@ -11,9 +11,20 @@
     background-color: rgb(88, 83, 83);
 
 }
+form{
+    width: 50%;
+}
+.NavBar form input{
+    width: 50%;
+    height: 22px;
+}
+.NavBar form button{
+    width: 5vw;
+    height: 3.4vh;
+}
 .btn{
     font-size: 20px;
 }
 .drop{
-    width: 15%;
+    width: 25%;
 }
