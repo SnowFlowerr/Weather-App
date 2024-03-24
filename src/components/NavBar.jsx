@@ -11,13 +11,7 @@ export default function NavBar({setState}) {
     }
     function handleSubmit(e){
         e.preventDefault();
-        let arr=loc.split();
-        let location="";
-        for(let i=0;i<arr.length-1;i++){
-            location+=arr[i];
-        }
-        location+=arr[arr.length-1];
-        setState(location)
+        setState(loc)
         setLoc("")
     }
     return (
