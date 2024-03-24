@@ -23,9 +23,12 @@ form{
     width: 58px;
     height: 28px;
 }
-.btn{
-    font-size: 20px;
-}
 .drop{
     width: 25%;
+}
+@media screen and (max-width:500px) {
+    .NavBar{
+        margin-top: 0vh;
+        width: 100%;
+    }
 }

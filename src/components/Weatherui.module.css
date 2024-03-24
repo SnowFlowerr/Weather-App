@@ -2,7 +2,7 @@
     margin: auto;
     width: 80%;
     height: 84vh;
-    box-shadow: 0px 0px 20px black;
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
     padding: 1px;
     color: rgb(112, 108, 108);
 }
@@ -40,7 +40,6 @@
 }
 .tempe{
     font-size: 1.8vw;
-    word-wrap: initial;
     /* border: 2px solid black; */
 }
 .live{
@@ -98,4 +97,9 @@
     background-color: white;
     border: none;
     font-size: 15px;
+}
+@media screen and (max-width:500px) {
+    .Bigbox{
+        box-shadow:none;
+    }
 }
