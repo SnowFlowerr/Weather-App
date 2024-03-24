@@ -9,7 +9,7 @@ export default function Weatherui() {
     const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
     const [cel, setCel] = useState(true)
     const [feh, setFeh] = useState(false)
-    const [loc, setLoc] = useState("Enter Location")
+    const [loc, setLoc] = useState({resolvedAddress:"Enter Location"})
 
     const [live, setLive] = useState({
         "datetime": null,
@@ -52,9 +52,11 @@ export default function Weatherui() {
         fetchData();
     }, [state])
     function handleLive(Index) {
-        setLive(data[Index])
-        allwhite()
-        document.getElementById(`${Index}`).style.color = "black"
+        if(state.trim()!==""){
+            setLive(data[Index])
+            allwhite()
+            document.getElementById(`${Index}`).style.color = "black"
+        }
     }
     function handleCel(e) {
         e.preventDefault();

@@ -12,15 +12,16 @@
 
 }
 form{
-    width: 50%;
+    width: 100%;
 }
 .NavBar form input{
-    width: 40%;
+    width: 20%;
     height: 22px;
+    min-width: 160px;
 }
 .NavBar form button{
     width: 58px;
-    height: 3.45vh;
+    height: 28px;
 }
 .btn{
     font-size: 20px;

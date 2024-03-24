@@ -68,7 +68,7 @@
 }
 .smallIcon{
     font-size: 1vw;
-    margin-top: 2.6vh;
+    margin-top: 1.6vw;
     /* border: 2px solid black; */
 }
 .smallIcon i{
@@ -82,7 +82,7 @@
     font-size: 1.9vw;
 }
 .letters{
-    font-size: 12px;
+    font-size: 0.8vw;
 }
 .celFar{
     margin-top: 10vh;
