@@ -59,6 +59,9 @@
 .liveTemp{
     font-size: 7.5vw;
 }
+.livesmall{
+    font-size: 1.5vw;
+}
 .liveMinMax{
     /* border: 2px solid black; */
     text-align: center;

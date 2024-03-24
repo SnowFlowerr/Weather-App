@@ -143,7 +143,7 @@ export default function Weatherui() {
                 </div>
                 <div className={styles.live}>
                     <div className={styles.icon}>{getImage(live.description)}</div>
-                    <div className={styles.liveMinMax}><div className={styles.liveTemp}>{cel === true ? Math.round(live.temp) : Math.round((live.temp * 9 / 5) + 32)}</div><div>{cel === true ? Math.floor(live.tempmin) : Math.floor(live.tempmin * 9 / 5) + 32}<sup>o</sup> / {cel === true ? Math.floor(live.tempmax) : Math.floor(live.tempmax * 9 / 5) + 32}<sup>o</sup></div></div>
+                    <div className={styles.liveMinMax}><div className={styles.liveTemp}>{cel === true ? Math.round(live.temp) : Math.round((live.temp * 9 / 5) + 32)}</div><div className={styles.livesmall}>{cel === true ? Math.floor(live.tempmin) : Math.floor(live.tempmin * 9 / 5) + 32}<sup>o</sup> / {cel === true ? Math.floor(live.tempmax) : Math.floor(live.tempmax * 9 / 5) + 32}<sup>o</sup></div></div>
                     <div className={styles.threeicon}><div className={styles.smallIcon}><i class="fa-solid fa-wind"></i><span className={styles.Numbers}>{cel === true ? Math.floor(live.windspeedmean) : Math.round(live.windspeedmean / 1.6)}</span><span className={styles.letters}>{cel === true ? " km/h" : " mph"} </span></div><div className={styles.smallIcon}><i class="fa-solid fa-umbrella"></i><span className={styles.Numbers}>{Math.floor(live.precip)}</span><span className={styles.letters}> %</span></div><div className={styles.smallIcon}> <i class="fa-solid fa-droplet"></i><span className={styles.Numbers}>{Math.floor(live.humidity)}</span><span className={styles.letters}> %</span></div></div>
                 </div>
                 <div className={styles.datebox}>
