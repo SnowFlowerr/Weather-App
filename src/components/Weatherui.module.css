@@ -103,6 +103,7 @@
     .Bigbox{
         /* box-shadow:none; */
         width: 98%;
+        height: 95vh;
     }
     .location{
         margin-top: 6vh;
