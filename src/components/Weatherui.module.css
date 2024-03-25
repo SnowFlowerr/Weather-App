@@ -101,7 +101,8 @@
 }
 @media screen and (max-width:500px) {
     .Bigbox{
-        box-shadow:none;
+        /* box-shadow:none; */
+        width: 98%;
     }
     .location{
         margin-top: 6vh;
@@ -136,5 +137,10 @@
     }
     .liveMinMax{
         width: 30vw;
+    }
+    .datebox div {
+        text-align: center;
+        width: 15.5vw;
+        /* border: 0.1vw solid black; */
     }
 }

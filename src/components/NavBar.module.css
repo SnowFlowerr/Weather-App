@@ -29,6 +29,6 @@ form{
 @media screen and (max-width:500px) {
     .NavBar{
         margin-top: 0vh;
-        width: 100%;
+        width: 98%;
     }
 }
