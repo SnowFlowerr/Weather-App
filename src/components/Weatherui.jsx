@@ -27,7 +27,7 @@ export default function Weatherui() {
     useEffect(() => {
         async function fetchData() {
             try {
-                let response = await axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${state}?unitGroup=metric&elements=datetime%2CdatetimeEpoch%2Ctempmax%2Ctempmin%2Ctemp%2Chumidity%2Cprecip%2Cpreciptype%2Cwindspeedmean%2Csolarradiation%2Cdescription&include=fcst%2Cevents%2Ccurrent&key=UHFY2CQ8X3RMXJMJ488U877Z8&contentType=json`)
+                let response = await axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${state}/next7days?unitGroup=metric&elements=datetime%2CdatetimeEpoch%2Ctempmax%2Ctempmin%2Ctemp%2Chumidity%2Cprecip%2Cpreciptype%2Cwindspeedmean%2Csolarradiation%2Cdescription&include=fcst%2Cevents%2Ccurrent&key=UHFY2CQ8X3RMXJMJ488U877Z8&contentType=json`)
                 setData(response.data.days);
                 setLive(response.data.days[0])
                 allwhite()
