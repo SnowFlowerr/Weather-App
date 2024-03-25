@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "./NavBar.module.css"
 
 export default function NavBar({ setState }) {
@@ -10,20 +10,22 @@ export default function NavBar({ setState }) {
     function handleSubmit(e) {
         e.preventDefault();
         if(loc.trim()!==""){
-            setState(loc.trim())
+            localStorage.setItem("location",loc.trim())
         }
         setLoc("")
     }
-    // function handleDark(e){
-    // }
+    useEffect(()=>{
+        if(localStorage.getItem("location")!==null){
+            setState(localStorage.getItem("location"))
+        }
+    },[localStorage.getItem("location")])
+
     return (
         <div className={styles.NavBar}>
             <form onSubmit={handleSubmit}>
                 <input type="text" value={loc} placeholder='Enter the location in detail' onChange={handleChange} />
                 <button onClick={handleSubmit}>Search</button>
             </form>
-            {/* <button className={styles.btn} onClick={handleDark}><i className="fa-solid
-            fa-circle-half-stroke"></i></button> */}
         </div>
     )
 }

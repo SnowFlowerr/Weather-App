@@ -9,7 +9,7 @@ export default function Weatherui() {
     const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
     const [cel, setCel] = useState(true)
     const [feh, setFeh] = useState(false)
-    const [loc, setLoc] = useState({resolvedAddress:"Enter Location"})
+    const [loc, setLoc] = useState({ resolvedAddress: "Enter Location" })
 
     const [live, setLive] = useState({
         "datetime": null,
@@ -35,24 +35,12 @@ export default function Weatherui() {
                 document.getElementById('0').style.color = "black"
             } catch (error) {
                 console.error(error.message);
-                setLive({
-                    "datetime": null,
-                    "tempmax": null,
-                    "tempmin": null,
-                    "temp": null,
-                    "humidity": null,
-                    "precip": null,
-                    "preciptype": null,
-                    "solarradiation": null,
-                    "windspeedmean": null,
-                    "description": "Enter correct Location",
-                })
             }
         }
         fetchData();
     }, [state])
     function handleLive(Index) {
-        if(state.trim()!==""){
+        if (state.trim() !== "") {
             setLive(data[Index])
             allwhite()
             document.getElementById(`${Index}`).style.color = "black"
@@ -76,58 +64,58 @@ export default function Weatherui() {
             document.getElementById('cel').style.color = "rgb(112, 108, 108)"
         }
     }
-    function allwhite(){
-        for(let i=0;i<data.length;i++){
+    function allwhite() {
+        for (let i = 0; i < data.length; i++) {
             document.getElementById(`${i}`).style.color = "rgb(112, 108, 108"
         }
     }
     function getImage(condition) {
-        if(condition==="Partly cloudy throughout the day."){
+        if (condition === "Partly cloudy throughout the day.") {
             return <i class="fa-solid fa-cloud-sun"></i>;
         }
-        else if(condition==="Clear conditions throughout the day."){
+        else if (condition === "Clear conditions throughout the day.") {
             return <i class="fa-solid fa-sun"></i>;
         }
-        else if(condition==="Cloudy skies throughout the day."){
+        else if (condition === "Cloudy skies throughout the day.") {
             return <i class="fa-solid fa-cloud"></i>;
         }
-        else if(condition==="Cloudy skies throughout the day with late afternoon rain."){
+        else if (condition === "Cloudy skies throughout the day with late afternoon rain.") {
             return <i class="fa-solid fa-cloud-moon-rain"></i>;
         }
-        else if(condition==="Partly cloudy throughout the day with a chance of rain throughout the day."){
+        else if (condition === "Partly cloudy throughout the day with a chance of rain throughout the day.") {
             return <i class="fa-solid fa-cloud-sun-rain"></i>;
         }
-        else if(condition==="Partly cloudy throughout the day with late afternoon rain."){
+        else if (condition === "Partly cloudy throughout the day with late afternoon rain.") {
             return <i class="fa-solid fa-cloud-showers-heavy"></i>;
         }
-        else if(condition==="Partly cloudy throughout the day with a chance of rain."){
+        else if (condition === "Partly cloudy throughout the day with a chance of rain.") {
             return <i class="fa-solid fa-cloud-sun-rain"></i>
         }
-        else if(condition==="Cloudy skies throughout the day with a chance of rain throughout the day."){
+        else if (condition === "Cloudy skies throughout the day with a chance of rain throughout the day.") {
             return <i class="fa-solid fa-cloud-rain"></i>
         }
-        else if(condition==="Partly cloudy throughout the day with rain."){
+        else if (condition === "Partly cloudy throughout the day with rain.") {
             return <i class="fa-solid fa-cloud-sun-rain"></i>
         }
-        else if(condition==="Becoming cloudy in the afternoon."){
+        else if (condition === "Becoming cloudy in the afternoon.") {
             return <i class="fa-solid fa-cloud-moon"></i>;
         }
-        else if(condition==="Partly cloudy throughout the day with early morning rain."){
+        else if (condition === "Partly cloudy throughout the day with early morning rain.") {
             return <i class="fa-solid fa-cloud-sun-rain"></i>;
         }
-        else if(condition==="Partly cloudy throughout the day with storms possible."){
+        else if (condition === "Partly cloudy throughout the day with storms possible.") {
             return <i class="fa-solid fa-wind"></i>
         }
-        else if(condition==="Becoming cloudy in the afternoon with rain."){
+        else if (condition === "Becoming cloudy in the afternoon with rain.") {
             return <i class="fa-solid fa-cloud-moon-rain"></i>;
         }
-        else if(condition==="Clearing in the afternoon."){
+        else if (condition === "Clearing in the afternoon.") {
             return <i class="fa-solid fa-moon"></i>
         }
-        else if(condition==="Becoming cloudy in the afternoon with storms possible."){
+        else if (condition === "Becoming cloudy in the afternoon with storms possible.") {
             return <i class="fa-solid fa-wind"></i>
         }
-        else{
+        else {
             return <i class="fa-solid fa-cloud"></i>
         }
     }
@@ -138,7 +126,7 @@ export default function Weatherui() {
             <div className={styles.Bigbox}>
                 <div className={styles.descri}>
                     <div className={styles.location}>{loc.resolvedAddress}</div>
-                    
+
                     {live.description}
                 </div>
                 <div className={styles.live}>
@@ -150,7 +138,7 @@ export default function Weatherui() {
                     {data.map((element, Index) => <div onClick={() => handleLive(Index)} id={`${Index}`} className={styles.table}>
                         <div className={styles.box}>{getImage(element.description)}</div>
                         <div className={styles.tempe}>{cel === true ? Math.floor(element.tempmin) : Math.floor(element.tempmin * 9 / 5) + 32}<sup>o</sup> / {cel === true ? Math.floor(element.tempmax) : Math.floor(element.tempmax * 9 / 5) + 32}<sup>o</sup></div>
-                        <div className={styles.date}>{new Date().getDate()===new Date(element.datetime).getDate()?"TOD":days[new Date(element.datetime).getDay()]}</div>
+                        <div className={styles.date}>{new Date().getDate() === new Date(element.datetime).getDate() ? "TOD" : days[new Date(element.datetime).getDay()]}</div>
                     </div>)}
                 </div>
                 <div className={styles.celFar}>
