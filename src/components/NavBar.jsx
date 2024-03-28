@@ -4,6 +4,8 @@ import logo from "./logo.png"
 
 export default function NavBar({ setState }) {
     const [loc, setLoc] = useState("");
+    
+
     function handleChange(e) {
         e.preventDefault();
         setLoc(e.target.value);
@@ -21,10 +23,13 @@ export default function NavBar({ setState }) {
         }
     },[localStorage.getItem("location")])
 
+    
+
     return (
         <div className={styles.NavBar}>
             
             <div className={styles.logo}><a href="https://github.com/SnowFlowerr" target='_blank'><img src={logo} alt="CodoPhilic" /></a></div>
+            
             <form onSubmit={handleSubmit}>
                 <input type="text" value={loc} placeholder='Enter the location in detail' onChange={handleChange} />
                 <button onClick={handleSubmit}>Search</button>

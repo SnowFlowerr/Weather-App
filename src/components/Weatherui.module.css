@@ -6,14 +6,20 @@
     padding: 1px;
     color: rgb(112, 108, 108);
 }
+.time{
+    font-size: 20px;
+    margin-top: 3vh;
+    color:rgb(112, 108, 108);
+    text-align: center;
+}
 .descri{
     text-align: center;
     /* margin-top: 3vh; */
     font-size: 2.5vw;
 }
 .location{
-    margin-top: 5vh;
-    margin-bottom: 4vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
     font-size: 20px;
 }
 .datebox{
@@ -143,5 +149,11 @@
         text-align: center;
         width: 15.5vw;
         /* border: 0.1vw solid black; */
+    }
+    .time{
+        font-size: 15px;
+        margin-top: 5vh;
+        color:rgb(112, 108, 108);
+        text-align: center;
     }
 }

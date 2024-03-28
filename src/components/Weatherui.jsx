@@ -10,6 +10,7 @@ export default function Weatherui() {
     const [cel, setCel] = useState(true)
     const [feh, setFeh] = useState(false)
     const [loc, setLoc] = useState({ resolvedAddress: "Enter Location" })
+    const [time, setTime] = useState(new Date())
 
     const [live, setLive] = useState({
         "datetime": null,
@@ -119,11 +120,18 @@ export default function Weatherui() {
             return <i class="fa-solid fa-cloud"></i>
         }
     }
+    useEffect(() => {
+        const interval=setInterval(()=>{
+            setTime(new Date());
+        },1000)
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <>
             <NavBar setState={setState} ></NavBar>
             <div className={styles.Bigbox}>
+            <div className={styles.time}>{time.toLocaleTimeString()}</div>
                 <div className={styles.descri}>
                     <div className={styles.location}>{loc.resolvedAddress}</div>
 
