@@ -8,9 +8,12 @@
 }
 .time{
     font-size: 20px;
-    margin-top: 3vh;
+    margin-top: 4vh;
     color:rgb(112, 108, 108);
+    /* display: flex;
+    justify-content: center; */
     text-align: center;
+
 }
 .descri{
     text-align: center;
@@ -21,6 +24,7 @@
     margin-top: 3vh;
     margin-bottom: 3vh;
     font-size: 20px;
+    text-align: center;
 }
 .datebox{
     display: flex;
@@ -52,7 +56,7 @@
     width: 52%;
     margin: auto;
     display: flex;
-    margin-top: 8vh;
+    margin-top: 5vh;
     /* border: 2px solid black; */
 }
 .icon{
@@ -113,10 +117,10 @@
     }
     .location{
         margin-top: 6vh;
-        margin-bottom: 7vh;
+        margin-bottom: 6vh;
     }
     .live{
-        margin-top: 10vh;
+        margin-top: 9vh;
         width: 66vw;
     }
     .liveTemp{
@@ -152,7 +156,7 @@
     }
     .time{
         font-size: 15px;
-        margin-top: 5vh;
+        margin-top: 7vh;
         color:rgb(112, 108, 108);
         text-align: center;
     }

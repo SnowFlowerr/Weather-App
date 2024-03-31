@@ -121,9 +121,9 @@ export default function Weatherui() {
         }
     }
     useEffect(() => {
-        const interval=setInterval(()=>{
+        const interval = setInterval(() => {
             setTime(new Date());
-        },1000)
+        }, 1000)
         return () => clearInterval(interval);
     }, []);
 
@@ -131,12 +131,11 @@ export default function Weatherui() {
         <>
             <NavBar setState={setState} ></NavBar>
             <div className={styles.Bigbox}>
-            <div className={styles.time}>{time.toLocaleTimeString()}</div>
+                <div className={styles.location}>{loc.resolvedAddress}</div>
                 <div className={styles.descri}>
-                    <div className={styles.location}>{loc.resolvedAddress}</div>
-
                     {live.description}
                 </div>
+                <div className={styles.time}> <div>{time.toDateString()+" - "+time.toLocaleTimeString()}</div></div>
                 <div className={styles.live}>
                     <div className={styles.icon}>{getImage(live.description)}</div>
                     <div className={styles.liveMinMax}><div className={styles.liveTemp}>{cel === true ? Math.round(live.temp) : Math.round((live.temp * 9 / 5) + 32)}</div><div className={styles.livesmall}>{cel === true ? Math.floor(live.tempmin) : Math.floor(live.tempmin * 9 / 5) + 32}<sup>o</sup> / {cel === true ? Math.floor(live.tempmax) : Math.floor(live.tempmax * 9 / 5) + 32}<sup>o</sup></div></div>
